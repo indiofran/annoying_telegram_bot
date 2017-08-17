@@ -28,7 +28,7 @@ if($text == "/homersay") {
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 if($text == "/vivis") {
-    $response = "Vivito y coleando" . $user_name;
+    $response = "Vivito y coleando  " . $user_name;
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 if($text == "/insulto") {
@@ -44,13 +44,6 @@ if(preg_match('/\/sugerir/',$text, $matches)){
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
-// if(count($matches) > 0) {
-//     $response = "Por ahi esto te ayude";
-//     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
-//     $response = "http://lmgtfy.com/?q=". str_replace('?','',$text);
-//     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
-
-// }
 if($user_name == "Wendy" && preg_match('/?/',$text, $matches) > 0 ){
     $response = "Let me Google that For you";
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
@@ -59,6 +52,7 @@ if($user_name == "Wendy" && preg_match('/?/',$text, $matches) > 0 ){
     $response = urlencode("http://lmgtfy.com/?q=$let_me_google");
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
+
 if($text == "/wendylluvia"){
     $key = "e254c7639bac4a81b83204216171503";
     $city = 'Buenos%20Aires';
@@ -73,10 +67,10 @@ if($text == "/wendylluvia"){
     $weather = json_decode($json_output);
     $rain = strpos($weather->current->condition->text, 'rain') !== false;
     if($rain) {
-        $response = "Wendy, esta lloviendo ahora.";
+        $response = "Wendy, esta lloviendo ahora. ¿Si te lo digo en ingles entendes? " .$weather->current->condition->text;
         file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
     }else{
-        $response = "Asomate boluda! No ves el sol?";
+        $response = "Asomate boluda! por ahi en ingles lo entedes! ".$weather->current->condition->text;
         file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
     }
 }
@@ -94,8 +88,8 @@ if($user_name == "Wendy" && $random_number > 59){
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
-if($random_number > 89){
-    $response = "#Tremendo";
+if($random_number > 89 ){
+    $response = urlencode("#Tremendo");
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 if($text == "github"){
