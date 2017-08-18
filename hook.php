@@ -36,6 +36,13 @@ if($text == "/insulto") {
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
+if($text == "/sola") {
+    $response = "Sola, sola en el olvido
+Sola, sola con su espíritu
+Sola, con su amor el mar
+Sola, en el muelle de san blás";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
 $matches = 0;
 if(preg_match('/\/sugerir/',$text, $matches)){
     $response = str_replace("/sugerir", "", $text);
