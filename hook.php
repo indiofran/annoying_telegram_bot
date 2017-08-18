@@ -13,10 +13,10 @@ $user_name = $message["from"]["first_name"];
 $text = strtolower($text);
 
 if($text == "hola") {
-    $response = "Hola $user_name! ¿Ya me empezaste a romper las pelotas?";
+    $response = urlencode("Hola $user_name! ¿Ya me empezaste a romper las pelotas?");
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
-$wendy_questions=['¿Esta lloviendo afuera?', '¿Aburrida la clase?', 'Pasé por el barrio chino y me compré un spinner'];
+$wendy_questions=['¿Esta lloviendo afuera?', '¿Aburrida la clase?', 'Pasé por el barrio chino y me compré un spinner', 'porque no anda?', 'como vuelvo de campana?','o sea porque se metio down 4 it?'];
 
 if($text == "/wendyask") {
     $response = $wendy_questions[rand (0, count($wendy_questions))];
@@ -67,10 +67,14 @@ if($text == "/wendylluvia"){
     $weather = json_decode($json_output);
     $rain = strpos($weather->current->condition->text, 'rain') !== false;
     if($rain) {
-        $response = "Wendy, esta lloviendo ahora. ¿Si te lo digo en ingles entendes? " .$weather->current->condition->text;
+        $response = "Wendy, esta lloviendo ahora. ¿Si te lo digo en ingles entendes?";
+        file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
+        $response = "Current Weather condition: " .$weather->current->condition->text;
         file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
     }else{
-        $response = "Asomate boluda! por ahi en ingles lo entedes! ".$weather->current->condition->text;
+        $response = "Asomate boluda! Seguramente en ingles lo entendes!";;
+        file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
+        $response = "Current Weather condition: " .$weather->current->condition->text;
         file_get_contents($website . "/sendmessage?chat_id=" . $chatId . "&text=" . $response);
     }
 }
@@ -80,20 +84,64 @@ if(preg_match('/olicheck/',$text, $matches)) {
     $response = $insultos_elegantes[rand (0, count($insultos_elegantes))];
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
-$random_number= rand(0,101);
-$wendy_shut_up_message = ['Che Wendy, CALLATE!', 'Wendy, Hablaste mucho', 'Wendy, sos mas molesta que yo', "Wendy, Wendy. Basta", 'Wendy, calmate un poco', 'Wendy, volvé a whatsApp', 'Wendy está bien', 'Wendy, tenes razón', 'Wendy, lixo, calha boca, argentina boluda!'];
+$random_number= rand(0,1001);
+$shut_up_message = ["Che $user_name, CALLATE!", "$user_name, Hablaste mucho", "$user_name, sos mas molesto que yo", "$user_name, $user_name Basta", "$user_name, calmate un poco", "$user_name volvé a whatsApp", "$user_name está bien", "$user_name tenes razón", "$user_name, lixo, calha boca, argentino boludo!", "$user_name sos un 🤡", "sabes cuanta cindor te hace falta?"];
 
-if($user_name == "Wendy" && $random_number > 59){
-    $response = $wendy_shut_up_message[rand (0, count($wendy_shut_up_message))];
+if($random_number > 990){
+    $response = $shut_up_message[rand (0, count($wendy_shut_up_message))];
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
-if($random_number > 89 ){
+if($random_number < 10){
     $response = urlencode("#Tremendo");
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 if($text == "github"){
     $response = "https://github.com/indiofran/annoying_telegram_bot";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/yo quiero/',$text, $matches)){
+ $response = "Pero que mierda queres vo?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+// if(preg_match('/cisco/',$text, $matches)){
+//      $response = "Que pasa Wendy tu bot no funciona? 😜,BASTA WENDY CANSAS";
+//     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+// }
+// if(preg_match('/pablo/',$text, $matches)){
+//      $response = "Que pasa Wendy tu bot no funciona?😜, Pablo es un crack!";
+//      file_get_contents($website."/sendSticker?chat_id=".$chatId."&sticker=https://server.gofer.com.ar/cambalacheBot/stikcers/ahhh_you_idiot.webp");
+//     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+
+// }
+if(preg_match('/clion/',$text, $matches)){
+ $response = "también llamada Clion-sur-Indre,2​ es una población y comuna francesa, en la región de Centro, departamento de Indre, en el distrito de Châteauroux y cantón de Châtillon-sur-Indre.";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/basta chicos/',$text, $matches)){
+ $response = "che ricardo volve!";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/cuando/',$text, $matches)){
+ $response = "El viernes, estoy seguro";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/como/',$text, $matches)){
+ $response = "Como de comer o de como hacer algo?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/loco/',$text, $matches)){
+ $response = "Las locuras que más se lamentan en la vida de un hombre son las que no se cometieron cuando se tuvo la oportunidad.";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+if(preg_match('/sola/',$text, $matches)) {
+    $response = "Sola, sola en el olvido Sola,";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+    $response =  "sola con su espíritu" ;
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+    $response = "Sola, con su amor el mar" ;
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+    $response = "Sola, en el muelle de san blás";
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
