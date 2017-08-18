@@ -148,3 +148,14 @@ if(preg_match('/bots/',$text, $matches)){
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
+if(preg_match('/algo/',$text, $matches)){
+ $response = "aburrida la clase?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+
+
+if(preg_match('/orga/',$text, $matches)){
+ $response = "1+1=1";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+
