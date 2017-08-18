@@ -122,14 +122,6 @@ if(preg_match('/basta chicos/',$text, $matches)){
  $response = "che ricardo volve!";
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
-if(preg_match('/cuando/',$text, $matches)){
- $response = "El viernes, estoy seguro";
-    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
-}
-if(preg_match('/como/',$text, $matches)){
- $response = "Como de comer o de como hacer algo?";
-    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
-}
 if(preg_match('/loco/',$text, $matches)){
  $response = "Las locuras que más se lamentan en la vida de un hombre son las que no se cometieron cuando se tuvo la oportunidad.";
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
