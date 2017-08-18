@@ -148,3 +148,9 @@ if(preg_match('/bots/',$text, $matches)){
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
+
+
+if(preg_match('/aula/',$text, $matches)){
+ $response = "https://www.dc.uba.ar/materias/aed2/2017/2c/tn";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
