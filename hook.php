@@ -137,3 +137,14 @@ if(preg_match('/sola/',$text, $matches)) {
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
+if(preg_match('/bot/',$text, $matches)){
+ $response = "que te pasa? tas nervioso?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+
+
+if(preg_match('/bots/',$text, $matches)){
+ $response = "que te pasa? tas nervioso?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+
