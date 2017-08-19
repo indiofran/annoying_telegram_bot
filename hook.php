@@ -36,6 +36,11 @@ if($text == "/insulto") {
     file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
 }
 
+if($text == "el") {
+    $response = "que onda el asado?";
+    file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$response);
+}
+
 $matches = 0;
 if(preg_match('/\/sugerir/',$text, $matches)){
     $response = str_replace("/sugerir", "", $text);
